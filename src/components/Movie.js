@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-export const Movie = ({ title, year, poster }) => {
+export const Movie = ({ id, title, year, poster }) => {
    return (
-      <div className="card">
+      <Link to={`/detail/${id}`} className="card">
          <div className="card-image">
             <figure className="image">
                <img src={poster} alt={title} />
@@ -16,11 +17,12 @@ export const Movie = ({ title, year, poster }) => {
                </div>
             </div>
          </div>
-      </div>
+      </Link>
    );
 };
 
 Movie.propTypes = {
+   id: PropTypes.string,
    title: PropTypes.string,
    year: PropTypes.string,
    poster: PropTypes.string,
